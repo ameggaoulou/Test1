@@ -1,0 +1,10 @@
+name: Echo ARG_MAX
+
+on: [push]
+
+jobs:
+  run-argmax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get ARG_MAX
+        run: echo $(getconf ARG_MAX)
