@@ -1,4 +1,4 @@
-name: Echo ARG_MAX
+name: Simulate setting ARG_MAX
 
 on: [push]
 
@@ -6,5 +6,11 @@ jobs:
   run-argmax:
     runs-on: ubuntu-latest
     steps:
-      - name: Get ARG_MAX
-        run: echo $(getconf ARG_MAX)
+      - name: Get and echo ARG_MAX
+        run: |
+          original_arg_max=$(getconf ARG_MAX)
+          echo "Original ARG_MAX: $original_arg_max"
+          
+          # Simulating adding a '0' to the value
+          simulated_arg_max="${original_arg_max}0"
+          echo "Simulated ARG_MAX (with added 0): $simulated_arg_max"
